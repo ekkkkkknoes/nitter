@@ -14,7 +14,7 @@ const
 proc toTheme(theme: string): string =
   theme.toLowerAscii.replace(" ", "_")
 
-proc renderNavbar(cfg: Config; req: Request; rss, canonical: string): VNode =
+proc renderNavbar(prefs: Prefs; cfg: Config; req: Request; rss, canonical: string): VNode =
   var path = req.params.getOrDefault("referer")
   if path.len == 0:
     path = $(parseUri(req.path) ? filterParams(req.params))
@@ -137,7 +137,7 @@ proc renderMain*(body: VNode; req: Request; cfg: Config; prefs=defaultPrefs;
                rss, canonical)
 
     body:
-      renderNavbar(cfg, req, rss, canonical)
+      renderNavbar(prefs, cfg, req, rss, canonical)
 
       tdiv(class="container"):
         body
