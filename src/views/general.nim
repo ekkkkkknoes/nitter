@@ -28,6 +28,8 @@ proc renderNavbar(cfg: Config; req: Request; rss, canonical: string): VNode =
       a(href="/"): img(class="site-logo", src="/logo.png", alt="Logo")
 
       tdiv(class="nav-item right"):
+        if prefs.copyUrlBtn:
+          icon "bird", title="Copy Twitter URL", id="copy-url", href=canonical
         icon "search", title="Search", href="/search"
         if cfg.enableRss and rss.len > 0:
           icon "rss-feed", title="RSS Feed", href=rss
@@ -78,6 +80,9 @@ proc renderHead*(prefs: Prefs; cfg: Config; req: Request; titleText=""; desc="";
 
     if prefs.infiniteScroll:
       script(src="/js/infiniteScroll.js", `defer`="")
+
+    if prefs.copyUrlBtn:
+      script(src="/js/copyUrlBtn.js", `defer`="")
 
     title:
       if titleText.len > 0:

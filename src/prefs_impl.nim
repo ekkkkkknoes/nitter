@@ -78,6 +78,9 @@ genPrefs:
     squareAvatars(checkbox, false):
       "Square profile pictures"
 
+    copyUrlBtn(checkbox, false):
+      "Add button to copy twitter url (javascript)"
+
   Media:
     mp4Playback(checkbox, true):
       "Enable mp4 video playback (only for gifs)"

@@ -15,7 +15,10 @@ function isDuplicate(item, itemClass) {
     return document.querySelector(itemClass + " .tweet-link[href='" + href + "']") != null;
 }
 
+var old = window.onload
+
 window.onload = function() {
+    if (old) old();
     const url = window.location.pathname;
     const isTweet = url.indexOf("/status/") !== -1;
     const containerClass = isTweet ? ".replies" : ".timeline";
