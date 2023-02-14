@@ -1,6 +1,4 @@
-var old = window.onload
-
-window.onload = function() {
+window.addEventListener("load", function() {
     if (old) old();
     var btns = document.querySelectorAll(".icon-bird");
     Array.from(btns).forEach(btn => {
@@ -9,4 +7,4 @@ window.onload = function() {
             navigator.clipboard.writeText(this.href);
         };
     });
-};
+}, false);
