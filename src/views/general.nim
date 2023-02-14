@@ -29,7 +29,7 @@ proc renderNavbar(prefs: Prefs; cfg: Config; req: Request; rss, canonical: strin
 
       tdiv(class="nav-item right"):
         if prefs.copyUrlBtn:
-          icon "bird", title="Copy Twitter URL", id="copy-url", href=canonical
+          icon "bird", title="Copy Twitter URL", class="copy-url", href=canonical
         icon "search", title="Search", href="/search"
         if cfg.enableRss and rss.len > 0:
           icon "rss-feed", title="RSS Feed", href=rss
